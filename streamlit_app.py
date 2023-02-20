@@ -28,5 +28,11 @@ streamlit.header("Fruityvice Fruit Advice!")
 
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response.json())
+streamlit.text(fruityvice_response.json())#just writes the date to the screen
+
+# show the json data into a tabular manner
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# show the tablar manner date into the screen
+streamlit.dataframe(fruityvice_normalized)
+
 
